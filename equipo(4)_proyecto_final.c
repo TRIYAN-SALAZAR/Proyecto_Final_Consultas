@@ -25,6 +25,7 @@ User users[MAX_USERS];
 int menu();
 void load_data_from_file();
 void find_data(int type);
+void show_user(int i);
 
 int main()
 {
@@ -53,15 +54,16 @@ int main()
         if(band)
             break;
     }
+    printf("GRACIAS POR UTILIZAR ESTE PROGRAMA");
     return 0;
 }
 
 int menu() {
     int opt;
     printf("\n----------- Menu -----------");
-    printf("\n1) Mostrar alumnos menores de 20 años");
-    printf("\n2) Mostrar alumnos de 20 años");
-    printf("\n3) Mostrar alumnos mayores de 20 años");
+    printf("\n1) Mostrar alumnos menores de 20 a%cos", 164);
+    printf("\n2) Mostrar alumnos de 20 a%cos", 164);
+    printf("\n3) Mostrar alumnos mayores de 20 a%cos", 164);
     printf("\n4) Salir\n");
 
     scanf("%d", &opt);
@@ -106,4 +108,26 @@ void load_data_from_file()
     fclose(file);
 }
 
-void find_data(int type) {}
+void find_data(int type) {
+    int i = 0;
+    if(type == 1 ) printf("\n   Alumnos Menores a 20 a%cos", 164);
+    if(type == 2 ) printf("\n   Alumnos de 20 a%cos", 164);
+    if(type == 3 ) printf("\n   Alumnos Mayores a 20 a%cos", 164);
+
+    while(i < MAX_USERS) {
+        int age = users[i].age;
+        // printf("\nedad test: %d", age);
+        if(age < 20 && type == 1) show_user(i);
+        if(age == 20 && type == 2) show_user(i);
+        if(age > 20 && type == 3) show_user(i);
+        i++;
+    }
+    printf("\n----------------------------\n");
+}
+
+void show_user(int i) {
+    printf("\n----------------------------\n");
+    printf("\nNombre: %s", users[i].name);
+    printf("\nEdad: %d", users[i].age);
+    printf("\nCarrera: %s \n", users[i].career);
+}

@@ -56,7 +56,17 @@ int main()
     return 0;
 }
 
-int menu() {}
+int menu() {
+    int opt;
+    printf("\n----------- Menu -----------");
+    printf("\n1) Mostrar alumnos menores de 20 años");
+    printf("\n2) Mostrar alumnos de 20 años");
+    printf("\n3) Mostrar alumnos mayores de 20 años");
+    printf("\n4) Salir\n");
+
+    scanf("%d", &opt);
+    return opt;
+}
 
 void load_data_from_file()
 {

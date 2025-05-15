@@ -57,6 +57,11 @@ int main()
             wait_an_action();
             break;
         case 4:
+            clear_screen();
+            show_all();
+            wait_an_action();
+            break;
+        case 5:
             band = 1;
             break;
         default:
@@ -77,8 +82,10 @@ int menu() {
     printf("\n1) Mostrar alumnos menores de 20 a%cos", 164);
     printf("\n2) Mostrar alumnos de 20 a%cos", 164);
     printf("\n3) Mostrar alumnos mayores de 20 a%cos", 164);
-    printf("\n4) Salir\n");
-
+    printf("\n4) Mostrar todos los alumnos");
+    printf("\n5) Salir\n");
+    
+    printf("Opcion: ");
     scanf("%d", &opt);
     return opt;
 }
@@ -123,9 +130,9 @@ void load_data_from_file()
 
 void find_data(int type) {
     int i = 0;
-    if(type == 1 ) printf("\n\tAlumnos Menores a 20 a%cos", 164);
-    if(type == 2 ) printf("\n\t   Alumnos de 20 a%cos", 164);
-    if(type == 3 ) printf("\n\tAlumnos Mayores a 20 a%cos", 164);
+    if(type == 1 ) printf("\n\tALUMNOS MENORES A 20 A%cOS", 165);
+    if(type == 2 ) printf("\n\t   ALUMNOS DE 20 A%cOS", 165);
+    if(type == 3 ) printf("\n\tALUMNOS MAYORES A 20 A%cOS", 165);
     printf("\n");
     table_header();
     while(i < MAX_USERS) {
@@ -151,10 +158,12 @@ void table_header() {
 
 void show_all() {
     int i;
+    printf("\n\t TODOS LOS ALUMNOS\n");
     table_header();
     for(i = 0; i < MAX_USERS; i++) {
         show_user(i);
     }
+    printf("+--------------------+-------+---------+\n");
 }
 
 void clear_screen() {

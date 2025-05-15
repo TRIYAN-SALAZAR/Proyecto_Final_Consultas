@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <windows.h>
 
 #define MAX_USERS 6
 
@@ -26,8 +27,10 @@ int menu();
 void load_data_from_file();
 void find_data(int type);
 void show_user(int i);
+
 void show_all();
 void table_header();
+void clear_screen();
 
 int main()
 {
@@ -36,21 +39,24 @@ int main()
     while(1) {
         int opt, band = 0;
         opt = menu();
-        switch (opt)
-        {
+        switch (opt) {
         case 1:
+            clear_screen();
             find_data(opt);
             break;
         case 2:
+            clear_screen();
             find_data(opt);
             break;
         case 3:
+            clear_screen();
             find_data(opt);
             break;
         case 4:
             band = 1;
             break;
         default:
+            prinf("\nEsa opcion no es valida\n");
             break;
         }
 
@@ -145,4 +151,8 @@ void show_all() {
     for(i = 0; i < MAX_USERS; i++) {
         show_user(i);
     }
+}
+
+void clear_screen() {
+    system("cls");
 }

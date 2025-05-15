@@ -31,6 +31,7 @@ void show_user(int i);
 void show_all();
 void table_header();
 void clear_screen();
+void wait_an_action();
 
 int main()
 {
@@ -43,20 +44,23 @@ int main()
         case 1:
             clear_screen();
             find_data(opt);
+            wait_an_action();
             break;
         case 2:
             clear_screen();
             find_data(opt);
+            wait_an_action();
             break;
         case 3:
             clear_screen();
             find_data(opt);
+            wait_an_action();
             break;
         case 4:
             band = 1;
             break;
         default:
-            prinf("\nEsa opcion no es valida\n");
+            printf("\nEsa opcion no es valida\n");
             break;
         }
 
@@ -69,7 +73,7 @@ int main()
 
 int menu() {
     int opt;
-    printf("\n----------- Menu -----------");
+    printf("\n----------------- Menu -----------------");
     printf("\n1) Mostrar alumnos menores de 20 a%cos", 164);
     printf("\n2) Mostrar alumnos de 20 a%cos", 164);
     printf("\n3) Mostrar alumnos mayores de 20 a%cos", 164);
@@ -119,9 +123,9 @@ void load_data_from_file()
 
 void find_data(int type) {
     int i = 0;
-    if(type == 1 ) printf("\n   Alumnos Menores a 20 a%cos", 164);
-    if(type == 2 ) printf("\n   Alumnos de 20 a%cos", 164);
-    if(type == 3 ) printf("\n   Alumnos Mayores a 20 a%cos", 164);
+    if(type == 1 ) printf("\n\tAlumnos Menores a 20 a%cos", 164);
+    if(type == 2 ) printf("\n\t   Alumnos de 20 a%cos", 164);
+    if(type == 3 ) printf("\n\tAlumnos Mayores a 20 a%cos", 164);
     printf("\n");
     table_header();
     while(i < MAX_USERS) {
@@ -155,4 +159,10 @@ void show_all() {
 
 void clear_screen() {
     system("cls");
+}
+
+void wait_an_action() {
+    printf("\n\nPresione ENTER para continuar...");
+    fflush(stdin);
+    getchar();
 }
